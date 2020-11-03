@@ -142,12 +142,13 @@ function validateInput() {
 function putBooksOnTheShelf() {
   for (let i = 0; i <= myLibrary.length - 1; i += 1) {
     shelveTheBook(i);
-    submitForm.onclick = () => {
+    
+  }
+  submitForm.onclick = () => {
       if (validateInput() === true) {
         addBookToLibrary(title, author, pages, checkbox);
       }
     };
-  }
 }
 
 putBooksOnTheShelf();
