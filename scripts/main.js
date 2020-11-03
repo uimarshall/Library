@@ -1,17 +1,25 @@
 const myLibrary = [];
 
-const bookLibFactory = (title, author, pages, read) => {
+class  bookLibFactory {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
+}
+
+// const bookLibFactory = (title, author, pages, read) => {
  
-   return {
-    title,
-    author,
-    pages,
-    read,
-  };
+//    return {
+//     title,
+//     author,
+//     pages,
+//     read,
+//   };
 
  
-};
-
+// };
 
 
 if (localStorage.myLibrary) {
@@ -111,8 +119,15 @@ function shelveTheBook(spot) {
 
 function addBookToLibrary(title, author, pages, checkbox) {
   const read = checkIfRead(checkbox.checked);
+  // ************************************************************************
+  // Using constructors
   // const newBook = new Book(title.value, author.value, pages.value, read);
-  const newBook = bookLibFactory(title.value, author.value, pages.value, read);
+  // ************************************************************************
+  // Using Factory functions
+  // const newBook = bookLibFactory(title.value, author.value, pages.value, read);
+  // ************************************************************************
+  // Using class constructors
+  const newBook = new bookLibFactory(title.value, author.value, pages.value, read);
   newBook.index = myLibrary.length;
   myLibrary.push(newBook);
   localStorage.myLibrary = JSON.stringify(myLibrary);
